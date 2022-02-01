@@ -1,5 +1,5 @@
 service: star-wars-api
-frameworkVersion: '2'
+frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs14.x
@@ -38,3 +38,6 @@ functions:
       - http:
           path: /{proxy+}
           method: any
+
+plugins:
+  - serverless-offline
