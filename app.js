@@ -1,7 +1,7 @@
+require('isomorphic-fetch')
 const serverless = require('serverless-http')
-const express = require('express')
-const app = express()
-const { handleError } = require('./helpers')
+const app = require('express')()
+const { handleError } = require('./middlewares')
 
 
 app.use('/films',require('./server/films/film.router'))

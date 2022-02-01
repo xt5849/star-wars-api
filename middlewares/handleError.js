@@ -1,4 +1,4 @@
-const response = require('./response')
+const { response } = require('../helpers')
 
 exports.routeError = (req,res,_next) => {
    return response({

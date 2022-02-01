@@ -1,4 +1,4 @@
-require('isomorphic-fetch')
+// require('isomorphic-fetch')
 const { URL_SWAPI } = require('../../../config')
 
 module.exports = _params => {
