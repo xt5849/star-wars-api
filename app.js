@@ -1,9 +1,11 @@
 const serverless = require('serverless-http')
 const express = require('express')
 const app = express()
+const { handleRouteError } = require('./helpers')
 
-const FilmRouter = require('./server/films/film.router')
 
-app.use('/films',FilmRouter)
+app.use('/films',require('./server/films/film.router'))
+
+app.use(handleRouteError)
 
 module.exports.handler = serverless(app)
