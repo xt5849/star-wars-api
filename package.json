@@ -6,5 +6,13 @@
   "scripts": {},
   "keywords": [],
   "author": "Enzo Olórtegui",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^8.4.0"
+  },
+  "dependencies": {
+    "express": "4.17.2",
+    "joi": "^17.6.0",
+    "serverless-http": "2.7.0"
+  }
 }
