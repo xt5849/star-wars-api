@@ -1,8 +1,11 @@
 const { Router } = require('express')
 const router = Router()
 
+const services = require('./services')
+
 router.get('/', async (_req,res) => {
-   return res.json({message: 'hola mundo'})
+   const ans = await services.get()
+   return res.json(ans)
 })
 
 module.exports = router
