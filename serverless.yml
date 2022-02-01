@@ -1,0 +1,40 @@
+service: star-wars-api
+frameworkVersion: '2'
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  stage: dev
+  region: us-east-1
+  apiGateway:
+    shouldStartNameWithService: true
+  environment: ${file(env.${self:custom.stage}.json)}
+  timeout: 30
+
+custom:
+  stage: ${opt:stage,self:provider.stage}
+  region: ${opt:region,self:provider.region}
+
+package:
+  individually: true
+  patterns:
+    - '!.serverless/**'
+    - '!.git/**'
+    - '!*.md'
+    - '!env.*.json'
+
+functions:
+  app:
+    handler: app.handler
+    name: ${self:service}-${self:custom.stage}-app
+    package:
+      patterns:
+        - '!package-lock.json'
+        - '!package.json'
+        - '!node_modules/**'
+    layers:
+      - { Ref: ApiLambdaLayer }
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
