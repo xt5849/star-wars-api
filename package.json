@@ -20,7 +20,6 @@
     "joi": "^17.6.0",
     "mysql": "^2.18.1",
     "serverless-http": "2.7.0",
-    "typeorm": "^0.2.41",
-    "typeorm-aurora-data-api-driver": "^2.3.5"
+    "typeorm": "^0.2.41"
   }
 }
