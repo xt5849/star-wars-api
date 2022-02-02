@@ -1,3 +1,3 @@
 module.exports = {
-   get: require('./get.service')
+   getSwapi: require('./get.service')
 }
