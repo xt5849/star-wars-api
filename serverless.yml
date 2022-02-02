@@ -9,6 +9,7 @@ provider:
     shouldStartNameWithService: true
   environment: ${file(env.${self:custom.stage}.json)}
   timeout: 30
+  versionFunctions: false
 
 custom:
   stage: ${opt:stage,self:provider.stage}

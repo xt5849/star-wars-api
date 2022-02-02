@@ -41,8 +41,6 @@ module.exports = async ({
          where: whereLogic
       })
 
-      console.log(ratings)
-
       if(!ratings.length) {
          return { message: 'No hay calificaciones por el momento' }
       }
