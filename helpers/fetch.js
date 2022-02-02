@@ -1,7 +1,7 @@
 const { URL_SWAPI } = require('../config')
 
 const setURL = uri => (resource,format="json") => {
-   const url = uri + `/${resource}?format=${format}`
+   const url = uri + `${resource}?format=${format}`
    return fetch(url)
       .then(response => response.json())
       .catch(error => {

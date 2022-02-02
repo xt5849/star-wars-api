@@ -8,7 +8,7 @@ module.exports = async ({
    perPage
 }) => {
    try {
-      const response = await fetchResource('films')
+      const response = await fetchResource('/films')
       if(response.error) {
          return response
       }

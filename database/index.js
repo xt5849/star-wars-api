@@ -5,7 +5,10 @@ const {
    DATABASE_NAME,
    SECRET_ARN,
    DATABASE_ARN,
-   DATABASE_REGION
+   DATABASE_REGION,
+   DATABASE_USERNAME,
+   DATABASE_PASSWORD,
+   DATABASE_HOST
 } = require('../config')
 
 const {
@@ -13,7 +16,7 @@ const {
 } = require('../entities')
 
 const connectionOptions = {
-   type: "aurora-data-api",
+   type: "mysql",
    synchronize: true,
    database: DATABASE_NAME,
    secretArn: SECRET_ARN,
@@ -25,7 +28,10 @@ const connectionOptions = {
    },
    entities: [
       new EntitySchema(RatingEntity)
-   ]
+   ],
+   username: DATABASE_USERNAME,
+   password: DATABASE_PASSWORD,
+   host: DATABASE_HOST
 }
 
 var cachedConnection

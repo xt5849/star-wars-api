@@ -12,7 +12,7 @@ module.exports = {
       },
       comentarios: {
          type: "varchar",
-         nullable: false
+         nullable: true
       },
       peliculaId: {
          type: "int",
@@ -22,11 +22,11 @@ module.exports = {
          type: "int",
          nullable: true
       },
-      creacion: {
+      creado: {
          type: "timestamp",
          default: () => "CURRENT_TIMESTAMP",
       },
-      updated: {
+      actualizado: {
          type: "timestamp",
          default: () => "CURRENT_TIMESTAMP",
       },
