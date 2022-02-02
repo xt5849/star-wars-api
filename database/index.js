@@ -14,7 +14,7 @@ const {
 
 const connectionOptions = {
    type: "aurora-data-api",
-   synchronize: false,
+   synchronize: true,
    database: DATABASE_NAME,
    secretArn: SECRET_ARN,
    resourceArn: DATABASE_ARN,
