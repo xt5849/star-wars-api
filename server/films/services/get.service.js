@@ -1,5 +1,7 @@
-const { fetchResource } = require('../../../helpers')
-const { Translate } = require('@google-cloud/translate').v2
+const {
+   fetchResource,
+   translateFields
+} = require('../../../helpers')
 
 module.exports = async ({
    page,
@@ -10,25 +12,17 @@ module.exports = async ({
       if(response.error) {
          return response
       }
-      const translate = new Translate()
       const firstIndex = perPage*(page-1)
       const topIndex = perPage*page
+      const data = await translateFields(response)
       const total = response.results.length
       const pages = Math.ceil(total/perPage)
-      const data = response.results.slice(firstIndex,topIndex)
-      let target = 'es'
-      let [translations] = await translate.translate(JSON.stringify(data),target)
-      translations = Array.isArray(translations) ? translations : [translations];
-      console.log('Translations:')
-      translations.forEach((translation, i) => {
-         console.log(`${text[i]} => (${target}) ${translation}`)
-      })
       return {
          total,
          page,
          perPage,
          pages,
-         data
+         data: data.slice(firstIndex,topIndex)
       }
    } catch(error) {
       console.error(error.message,error.stack)

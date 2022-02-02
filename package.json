@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+     "local:dev": "sls offline"
+  },
   "keywords": [],
   "author": "Enzo Olórtegui",
   "license": "ISC",
@@ -11,7 +13,7 @@
     "serverless-offline": "^8.4.0"
   },
   "dependencies": {
-    "@google-cloud/storage": "^5.18.1",
+    "@google-cloud/translate": "^6.3.1",
     "express": "4.17.2",
     "isomorphic-fetch": "^3.0.0",
     "joi": "^17.6.0",
