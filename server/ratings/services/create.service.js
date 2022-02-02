@@ -26,7 +26,37 @@ module.exports = async (object  = {
       if(object.peliculaId) {
          const { peliculaId } = object
          const responseFilm = await fetchResource(`/films/${peliculaId}`)
-         return responseFilm
+         if(responseFilm.detail == "Not found") {
+            return {
+               error: {
+                  code: 404,
+                  message: 'La película que especificó no existe.'
+               }
+            }
+         }
+         const rating = await RatingRepository.save({...object})
+         return {
+            ...rating,
+            pelicula: responseFilm.title,
+            director: responseFilm.director
+         }
+      }
+      if(object.personajeId) {
+         const { personajeId } = object
+         const responsePersonaje = await fetchResource(`/people/${personajeId}`)
+         if(responsePersonaje.detail == "Not found") {
+            return {
+               error: {
+                  code: 404,
+                  message: 'El personaje que especificó no existe.'
+               }
+            }
+         }
+         const rating = await RatingRepository.save({...object})
+         return {
+            ...rating,
+            personaje: responsePersonaje.name
+         }
       }
    } catch(error) {
       console.error(error.message,error.stack)
