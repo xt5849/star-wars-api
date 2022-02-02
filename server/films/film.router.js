@@ -1,11 +1,11 @@
 const { Router } = require('express')
 const router = Router()
 
-const services = require('./services')
+const controller = require('./film.controller')
 
-router.get('/', async (_req,res) => {
-   const ans = await services.get()
-   return res.json(ans)
-})
+router.get(
+   '/swapi',
+   controller.getSwapi
+)
 
 module.exports = router

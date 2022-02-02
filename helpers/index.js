@@ -1,3 +1,4 @@
 module.exports = {
-   response: require('./response')
+   response: require('./response'),
+   fetchResource: require('./fetch')
 }

@@ -11,6 +11,7 @@
     "serverless-offline": "^8.4.0"
   },
   "dependencies": {
+    "@google-cloud/storage": "^5.18.1",
     "express": "4.17.2",
     "isomorphic-fetch": "^3.0.0",
     "joi": "^17.6.0",
