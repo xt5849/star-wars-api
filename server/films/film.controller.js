@@ -23,3 +23,19 @@ exports.getRatedFilm = async (req,res) => {
    }
    return response(res,200,ans)
 }
+
+exports.getFilms = async (req,res) => {
+   const {
+      number = 1,
+      type = 'DESC',
+   } = req.query
+   const ans = await Services.getFilms({
+      ...req.query,
+      number,
+      type
+   })
+   if(ans.error) {
+      return response(res,ans.error.code,ans.error.message)
+   }
+   return response(res,200,ans)
+}

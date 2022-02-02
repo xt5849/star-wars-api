@@ -26,6 +26,11 @@ module.exports = async (object  = {
       if(object.peliculaId) {
          const { peliculaId } = object
          const responseFilm = await fetchResource(`/films/${peliculaId}`)
+
+         if(responseFilm.error) {
+            return responseFilm
+         }
+
          if(responseFilm.detail == "Not found") {
             return {
                error: {
@@ -44,6 +49,11 @@ module.exports = async (object  = {
       if(object.personajeId) {
          const { personajeId } = object
          const responsePersonaje = await fetchResource(`/people/${personajeId}`)
+
+         if(responsePersonaje.error) {
+            return responsePersonaje
+         }
+
          if(responsePersonaje.detail == "Not found") {
             return {
                error: {

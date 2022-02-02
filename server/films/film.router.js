@@ -22,4 +22,10 @@ router.get(
    controller.getRatedFilm
 )
 
+router.get(
+   '/',
+   validateQuery(schemas.getFilms),
+   controller.getFilms
+)
+
 module.exports = router

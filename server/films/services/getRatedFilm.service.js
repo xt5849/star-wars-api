@@ -20,6 +20,11 @@ module.exports = async ({
       const whereLogic = { peliculaId }
 
       const responseFilm = await fetchResource(`/films/${peliculaId}`)
+
+      if (responseFilm.error) {
+         return response
+      }
+
       if (responseFilm.detail == "Not found") {
          return {
             error: {
