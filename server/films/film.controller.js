@@ -12,3 +12,14 @@ exports.getSwapi = async (req,res) => {
    }
    return response(res,200,ans)
 }
+
+exports.getRatedFilm = async (req,res) => {
+   const ans = await Services.getRatedFilm({
+      ...req.query,
+      peliculaId: req.params.id
+   })
+   if(ans.error) {
+      return response(res,ans.error.code,ans.error.message)
+   }
+   return response(res,200,ans)
+}

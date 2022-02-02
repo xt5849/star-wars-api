@@ -1,5 +1,6 @@
 module.exports = {
    handleError: require('./handleError'),
    validateBody: require('./validateBody'),
-   validateQuery: require('./validateQuery')
+   validateQuery: require('./validateQuery'),
+   validateId: require('./validateId')
 }

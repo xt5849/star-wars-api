@@ -1,3 +1,4 @@
 module.exports = {
-   getSwapi: require('./getSwapi.schema')
+   getSwapi: require('./getSwapi.schema'),
+   getRatedFilm: require('./getRatedFilm.schema')
 }

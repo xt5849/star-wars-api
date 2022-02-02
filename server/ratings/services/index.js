@@ -1,3 +1,3 @@
 module.exports = {
-   createRating: require('./create.service')
+   createRating: require('./create.service'),
 }
