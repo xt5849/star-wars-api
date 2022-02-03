@@ -16,7 +16,7 @@ Para la documentación del API, dirigirse:
 
 ## Variables de entorno
 
-Para poder utilizar el proyecto localmente necesitará
+Para poder utilizar el proyecto localmente necesitará un archivo `env.${dev,prod}.json`
 
 ```
 {
