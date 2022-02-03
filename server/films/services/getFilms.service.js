@@ -30,6 +30,14 @@ module.exports = async ({
       const whereLogic = { peliculaId: Not(IsNull()) }
 
       if(fechaInicio && fechaFinal) {
+         if(fechaFinal < fechaInicio) {
+            return {
+               error: {
+                  code: 400,
+                  message: 'La fecha final no puede ser menor que la inicial'
+               }
+            }
+         }
          whereLogic.creado = Between(fechaInicio,fechaFinal)
       } else if(fechaInicio && !fechaFinal) {
          whereLogic.creado = MoreThanOrEqual(fechaInicio)
