@@ -72,8 +72,6 @@ module.exports = async ({
       for(const filmId in sumRatings) {
          const film = films.results.find(film => {
             const id = film.url.split('/').slice(-2).shift()
-            console.log(id,filmId)
-            console.log(id==filmId)
             return id == filmId
          })
          const { sum, count } = sumRatings[filmId]

@@ -50,8 +50,6 @@ module.exports = async ({
          whereLogic.creado = LessThanOrEqual(fechaFinal)
       }
 
-      console.log(whereLogic)
-
       const ratings = await RatingRepository.find({
          where: whereLogic
       })
